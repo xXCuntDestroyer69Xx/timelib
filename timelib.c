@@ -78,7 +78,7 @@ int day_of_the_year(int day, int month, int year)
 
 int exists_date(int day, int month, int year)
 {
-     int monthdays = get_days_for_month(month,year);
+    int monthdays = get_days_for_month(month,year);
     if(monthdays == -1 || year > 2400 || year < 1582 || day < 1 || day > monthdays)
     {
         return 0;
@@ -87,4 +87,18 @@ int exists_date(int day, int month, int year)
     {
         return 1;
     }
+}
+
+int input_date(int *day, int *month, int *year)
+{
+    do
+    {
+        printf("Tag:");
+        scanf("%d", &*day);
+        printf("Monat:");
+        scanf("%d", &*month);
+        printf("Jahr:");
+        scanf("%d", &*year);
+    }
+    while(!exists_date(*day,*month,*year));
 }
